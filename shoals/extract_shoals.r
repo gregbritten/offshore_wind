@@ -1,9 +1,8 @@
 library(sf)
-library(raster)
 library(ggplot2)
 library(here)
 
-shape <- st_read("WindLeases/Offshore_Wind_Leases.shp")
+shape <- st_read("downloaded_shape/Offshore_Wind_Leases.shp")
 
 shoals <- shape[shape$LEASE_NUMB%in%c("OCS-A 0486",
                                       "OCS-A 0517",
@@ -24,4 +23,4 @@ ggplot() +
   theme_minimal()
 dev.off()
 
-st_write(shoals, "~/dropbox/working/offshore_wind/shoals.shp")
+st_write(shoals, "shoals/shoals.shp")
